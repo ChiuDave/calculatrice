@@ -24,6 +24,16 @@ export default function Calculator() {
     } else if (value === "C") {
       setInput(""); // Clear input
       setResult(null); // Reset result
+    } else if (value === "DEL") {
+      if (input.length > 0) { // Check if there is input to delete
+        setInput(input.slice(0, -1)); // Delete the last character
+      }
+    } else if (value === "%") {
+      try {
+        setResult(math.evaluate(`${input} / 100`)); // Calculate percentage
+      } catch (error) {
+        setResult("Error"); // Handle evaluation errors
+      }
     } else {
       setInput(input + value); // Update input with clicked value
     }
@@ -36,7 +46,7 @@ export default function Calculator() {
 
   return (
     <div className={`flex items-center justify-center h-screen ${theme === "light" ? "bg-gradient-to-r from-blue-400 to-purple-600" : "bg-gradient-to-r from-gray-800 to-gray-900"}`}>
-      <div className={`w-80 rounded-lg shadow-xl p-6 transition duration-300 ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}>
+      <div className={`w-200 rounded-lg shadow-xl p-6 transition duration-300 ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}>
         
         {/* Theme Toggle Switch */}
         <div className="flex justify-end mb-4">
@@ -59,17 +69,17 @@ export default function Calculator() {
           {result !== null && <div className={`text-gray-600 text-xl ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}>{result}</div>}
         </div>
         <div className="grid grid-cols-4 gap-4">
-          {["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", ".", "0", "=", "+"].map((calculatrice_item) => (
+          {["(", ")", "%", "DEL","7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", ".", "0", "=", "+"].map((calculatrice_item) => (
             <button
               key={calculatrice_item}
-              className={`p-4 text-2xl rounded-lg shadow-md transition duration-200 ${theme === "dark" ? "bg-gray-600 hover:bg-gray-500 text-white" : "bg-gray-200 hover:bg-gray-300 text-black"}`}
+              className={`w-16 h-16 p-4 text-2xl rounded-lg shadow-md transition duration-200 ${theme === "dark" ? "bg-gray-600 hover:bg-gray-500 text-white" : "bg-gray-200 hover:bg-gray-300 text-black"}`}
               onClick={() => handleClickResult(calculatrice_item)}
             >
               {calculatrice_item}
             </button>
           ))}
           <button
-            className={`col-span-4 p-4 text-2xl rounded-lg shadow-md transition duration-200 ${theme === "dark" ? "bg-red-600 hover:bg-red-500 text-white" : "bg-red-400 hover:bg-red-500 text-white"}`}
+            className={`col-span-4 w-full h-16 p-4 text-2xl rounded-lg shadow-md transition duration-200 ${theme === "dark" ? "bg-red-600 hover:bg-red-500 text-white" : "bg-red-400 hover:bg-red-500 text-white"}`}
             onClick={() => handleClickResult("C")}
           >
             C
