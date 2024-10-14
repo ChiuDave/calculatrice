@@ -1,4 +1,3 @@
-"use client";  // Mark this file as a Client Component
 import { useState } from "react";
 
 // ChatGpt 
@@ -14,7 +13,7 @@ export default function Calculator() {
             } catch(error) {
                 setResult(error);
             }
-        } else if (value === "c") {
+        } else if (value === "C") {
             setInput("");
             setResult(null);
 
@@ -36,20 +35,20 @@ export default function Calculator() {
                     {result !== null && <div className="text=gray-500">{result}</div>}
                 </div>
                 <div className="grid grid-clos-4 gap2">
-                    {["7","8","9","/","4","5","6","*","1","2","3","-",".","0","=","+"].map(
+                    {["7","8","9","/","4","5","6","x","1","2","3","-",".","0","=","+"].map(
                         (calculatrice_item) => (
                             <button 
-                                key={calculatrice_item}
+                                key={item}
                                 className="bg-gray-200 hover:bg-gray-300 p-4 text-xl rounded"
-                                onClick={() => handleClickResult(calculatrice_item)}
+                                onClick={() => handleClickResult(item)}
                             >
-                                {calculatrice_item}
+                                {item}
                             </button>
                         )
                     )}
                     <button
                         className="col-span-4 bg-red-400 hover:bg-red-500 text-white p-4 text-xl rounded"
-                        onClick={() => handleClickResult("c")}
+                        onClick={() => handleClickResult}
                     >
                         c
                     </button>
