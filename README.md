@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Calculatrice
 
-First, run the development server:
+# Calculatrice
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Une calculatrice fonctionnelle avec React, Next.js et Tailwind CSS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+C'est une calculatrice basique qui contient les opérateurs de base ainsi que l'option de mettre en pourcentage et d'ajouter des parenthèses pour des opérations PEMDAS. Elle possède les fonctionnalités suivantes :
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+* Bouton DEL - (permet de supprimer le dernier caractère écrit)
+* Bouton C - (permet de supprimer l'entièreté de l'input écrit)
+* Bouton + - (additionner)
+* Bouton - - (soustraire)
+* Bouton * - (multiplier)
+* Bouton / - (diviser)
+* Bouton % - (transformer en pourcentage)
+* Bouton . - (chiffre à virgule)
+* Boutons () - (parenthèses)
+* Toggle - (changer entre le mode clair et sombre)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Prérequis
 
-## Learn More
+- **Node.js** et **npm** (npm est inclus avec Node.js)
 
-To learn more about Next.js, take a look at the following resources:
+### Installation de Node.js et npm
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Télécharger et installer Node.js :**
+   - Rendez-vous sur [nodejs.org](https://nodejs.org/) et téléchargez l'installateur correspondant à votre système d'exploitation.
+   - Suivez les instructions de l'installateur. Cela installera à la fois Node.js et npm.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+  1. Cloner le projet :
+   ```bash
+     git clone https://github.com/ChiuDave/calculatrice.git
+  ```
+  2. Installer les dépendances (libraries)
+  ```bash
+    cd calculatrice
+    npm install
+  ```
+  3. Démarrer l'application
+  ```bash
+    npm run dev
+  ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Remarque
+
+* Ce code a été généré avec l'aide de ChatGPT, un modèle de langage développé par OpenAI. (https://chatgpt.com/)
+* Le README a été influencé par Learn Fast Make Things: (https://www.youtube.com/watch?v=E6NO0rgFub4&t=133s)
+
+
+---
