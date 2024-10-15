@@ -1,5 +1,3 @@
-// Code provided by ChatGPT (OpenAI's language model)
-
 "use client"; // Indicate that this file is a Client Component
 
 import { useState } from "react";
@@ -25,7 +23,7 @@ export default function Calculator() {
       setInput(""); // Clear input
       setResult(null); // Reset result
     } else if (value === "DEL") {
-      if (input.length > 0) { // Check if there is input to delete
+      if (input.length > 0) {
         setInput(input.slice(0, -1)); // Delete the last character
       }
     } else if (value === "%") {
@@ -59,6 +57,7 @@ export default function Calculator() {
           <span className={`ml-2 text-lg ${theme === "dark" ? "text-white" : "text-black"}`}>Dark</span>
         </div>
 
+        {/* Input Display */}
         <div className="mb-4 text-right">
           <input
             type="text"
@@ -68,8 +67,10 @@ export default function Calculator() {
           />
           {result !== null && <div className={`text-gray-600 text-xl ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}>{result}</div>}
         </div>
+
+        {/* Calculator Buttons */}
         <div className="grid grid-cols-4 gap-4">
-          {["(", ")", "%", "DEL","7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", ".", "0", "=", "+"].map((calculatrice_item) => (
+          {["(", ")", "%", "C", "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", ".", "0", "=", "+"].map((calculatrice_item) => (
             <button
               key={calculatrice_item}
               className={`w-16 h-16 p-4 text-2xl rounded-lg shadow-md transition duration-200 ${theme === "dark" ? "bg-gray-600 hover:bg-gray-500 text-white" : "bg-gray-200 hover:bg-gray-300 text-black"}`}
@@ -78,11 +79,13 @@ export default function Calculator() {
               {calculatrice_item}
             </button>
           ))}
+
+          {/* Full Width DEL Button */}
           <button
             className={`col-span-4 w-full h-16 p-4 text-2xl rounded-lg shadow-md transition duration-200 ${theme === "dark" ? "bg-red-600 hover:bg-red-500 text-white" : "bg-red-400 hover:bg-red-500 text-white"}`}
-            onClick={() => handleClickResult("C")}
+            onClick={() => handleClickResult("DEL")}
           >
-            C
+            DEL
           </button>
         </div>
       </div>
