@@ -1,43 +1,45 @@
-"use client"; // Indicate that this file is a Client Component
+// Code provided by ChatGPT (OpenAI's language model)
 
-import { useState } from "react";
-import { create, all } from 'mathjs'; // Import math.js
+"use client"; // Indique ce fichier composant client
 
-// Create a math.js instance
+import { useState } from "react"; // import useState
+import { create, all } from 'mathjs'; // import math.js
+
+// Créer instance mathjs
 const math = create(all);
 
 export default function Calculator() {
-  const [input, setInput] = useState(""); // State for the input expression
-  const [result, setResult] = useState(null); // State for the result
-  const [theme, setTheme] = useState("light"); // State for the current theme
+  const [input, setInput] = useState(""); // State pour input chiffre/opérateur
+  const [result, setResult] = useState(null); // State pour le résultat opération
+  const [theme, setTheme] = useState("light"); // State pour thème calculatrice courante
 
-  // Handle button click
+  // Gère opération quand click boutons
   const handleClickResult = (value) => {
     if (value === "=") {
       try {
-        setResult(math.evaluate(input)); // Use math.js to evaluate the expression
+        setResult(math.evaluate(input)); // calcule résultat
       } catch (error) {
-        setResult("Error"); // Handle evaluation errors
+        setResult("Error"); 
       }
     } else if (value === "C") {
-      setInput(""); // Clear input
-      setResult(null); // Reset result
+      setInput(""); // efface tout input rentré
+      setResult(null); 
     } else if (value === "DEL") {
       if (input.length > 0) {
-        setInput(input.slice(0, -1)); // Delete the last character
+        setInput(input.slice(0, -1)); // Supprimer dernier caractère entré
       }
     } else if (value === "%") {
       try {
-        setResult(math.evaluate(`${input} / 100`)); // Calculate percentage
+        setResult(math.evaluate(`${input} / 100`)); // Transforme en pourcentage
       } catch (error) {
-        setResult("Error"); // Handle evaluation errors
+        setResult("Error"); 
       }
     } else {
-      setInput(input + value); // Update input with clicked value
+      setInput(input + value); // Append valeurs quand on click
     }
   };
 
-  // Toggle theme between light and dark
+  // Permet changement thème
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
@@ -57,7 +59,7 @@ export default function Calculator() {
           <span className={`ml-2 text-lg ${theme === "dark" ? "text-white" : "text-black"}`}>Dark</span>
         </div>
 
-        {/* Input Display */}
+        {/* Input display */}
         <div className="mb-4 text-right">
           <input
             type="text"
@@ -65,10 +67,11 @@ export default function Calculator() {
             className={`text-2xl border-b border-gray-300 focus:outline-none focus:border-blue-500 w-full text-right mb-2 ${theme === "dark" ? "bg-gray-700 text-white" : "bg-white text-black"}`}
             readOnly
           />
+          {/* Résultat display */}
           {result !== null && <div className={`text-gray-600 text-xl ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}>{result}</div>}
         </div>
 
-        {/* Calculator Buttons */}
+        {/* Affcihage bouton calculatrices*/}
         <div className="grid grid-cols-4 gap-4">
           {["(", ")", "%", "C", "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", ".", "0", "=", "+"].map((calculatrice_item) => (
             <button
@@ -80,7 +83,7 @@ export default function Calculator() {
             </button>
           ))}
 
-          {/* Full Width DEL Button */}
+          {/* Affichage bouton DEL */}
           <button
             className={`col-span-4 w-full h-16 p-4 text-2xl rounded-lg shadow-md transition duration-200 ${theme === "dark" ? "bg-red-600 hover:bg-red-500 text-white" : "bg-red-400 hover:bg-red-500 text-white"}`}
             onClick={() => handleClickResult("DEL")}
