@@ -49,6 +49,7 @@ C'est une calculatrice basique qui contient les opérateurs de base ainsi que l'
 
 * Ce code a été généré avec l'aide de ChatGPT, un modèle de langage développé par OpenAI. (https://chatgpt.com/)
 * Le README a été influencé par Learn Fast Make Things: (https://www.youtube.com/watch?v=E6NO0rgFub4&t=133s)
+* Vidéo qui ma permis savoir comment héberger mon site statique: (https://youtu.be/E6NO0rgFub4?si=HmpiB_SONHJHs0YG)
 
 
 ---
